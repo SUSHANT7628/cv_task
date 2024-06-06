@@ -50,19 +50,7 @@ def detect_objects(frame, conf_threshold=0.2, nms_threshold=0.4):
     return bboxes
 
 def is_continuous_contact(video_path, contact_threshold=5, start_fraction=0.8):
-    """
-    Determine if there is continuous contact between hand and bottle in a video.
-    Displays the video with bounding boxes and the result.
-
-    Parameters:
-    - video_path: Path to the video file.
-    - contact_threshold: Number of frames with continuous contact to consider it manual.
-    - start_fraction: The fraction of the video length after which to start checking for contact.
-
-    Returns:
-    - "natural" if the flip is natural, "manual" otherwise.
-    """
-
+   
     cap = cv2.VideoCapture(video_path)
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     start_frame = int(total_frames * start_fraction)
